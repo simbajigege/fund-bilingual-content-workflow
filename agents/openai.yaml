@@ -1,0 +1,3 @@
+interface:
+  display_name: "Fund Bilingual Content Workflow"
+  short_description: "Generate bilingual fund-holdings posts in markdown"

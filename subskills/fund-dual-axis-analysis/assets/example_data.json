@@ -1,0 +1,178 @@
+{
+  "master_code": "159730",
+  "items": [
+    {
+      "id": 860,
+      "master_code": "159730",
+      "master_name": "博时国证龙头家电ETF",
+      "master_description": "基金 159730(博时国证龙头家电ETF) 2025年4季度股票投资明细 的持仓数据",
+      "a_positions": [
+        {
+          "shares": 93800.00000000001,
+          "weight": 14.78,
+          "stock_code": "002050",
+          "stock_name": "三花智控",
+          "market_value": 5188099.999999999
+        },
+        {
+          "shares": 126900,
+          "weight": 14.54,
+          "stock_code": "000651",
+          "stock_name": "格力电器",
+          "market_value": 5102100
+        },
+        {
+          "shares": 63099.99999999999,
+          "weight": 14.05,
+          "stock_code": "000333",
+          "stock_name": "美的集团",
+          "market_value": 4930400
+        },
+        {
+          "shares": 164500,
+          "weight": 12.23,
+          "stock_code": "600690",
+          "stock_name": "海尔智家",
+          "market_value": 4291800
+        },
+        {
+          "shares": 18000,
+          "weight": 4.42,
+          "stock_code": "605117",
+          "stock_name": "德业股份",
+          "market_value": 1551600
+        },
+        {
+          "shares": 18100,
+          "weight": 4.16,
+          "stock_code": "603486",
+          "stock_name": "科沃斯",
+          "market_value": 1460300
+        },
+        {
+          "shares": 9300,
+          "weight": 4.03,
+          "stock_code": "688169",
+          "stock_name": "石头科技",
+          "market_value": 1416300
+        },
+        {
+          "shares": 31800,
+          "weight": 3.7,
+          "stock_code": "603195",
+          "stock_name": "公牛集团",
+          "market_value": 1300000
+        },
+        {
+          "shares": 39700,
+          "weight": 2.81,
+          "stock_code": "000921",
+          "stock_name": "海信家电",
+          "market_value": 985000
+        },
+        {
+          "shares": 47000,
+          "weight": 2.59,
+          "stock_code": "002508",
+          "stock_name": "老板电器",
+          "market_value": 909100
+        }
+      ],
+      "hk_positions": [],
+      "us_positions": [],
+      "as_of_date": "2025-12-01",
+      "created_at": "2026-03-02T18:58:17.290150",
+      "updated_at": "2026-03-02T18:58:17.290150"
+    },
+    {
+      "id": 859,
+      "master_code": "159730",
+      "master_name": "博时国证龙头家电ETF",
+      "master_description": "基金 159730(博时国证龙头家电ETF) 2025年3季度股票投资明细 的持仓数据",
+      "a_positions": [
+        {
+          "shares": 114300,
+          "weight": 15.31,
+          "stock_code": "002050",
+          "stock_name": "三花智控",
+          "market_value": 5535500
+        },
+        {
+          "shares": 190900,
+          "weight": 13.37,
+          "stock_code": "600690",
+          "stock_name": "海尔智家",
+          "market_value": 4835500
+        },
+        {
+          "shares": 63099.99999999999,
+          "weight": 12.68,
+          "stock_code": "000333",
+          "stock_name": "美的集团",
+          "market_value": 4584000
+        },
+        {
+          "shares": 106400,
+          "weight": 11.68,
+          "stock_code": "000651",
+          "stock_name": "格力电器",
+          "market_value": 4224400
+        },
+        {
+          "shares": 11500,
+          "weight": 6.69,
+          "stock_code": "688169",
+          "stock_name": "石头科技",
+          "market_value": 2420200
+        },
+        {
+          "shares": 29800,
+          "weight": 6.67,
+          "stock_code": "605117",
+          "stock_name": "德业股份",
+          "market_value": 2412100
+        },
+        {
+          "shares": 18300,
+          "weight": 5.44,
+          "stock_code": "603486",
+          "stock_name": "科沃斯",
+          "market_value": 1967300
+        },
+        {
+          "shares": 26500,
+          "weight": 3.28,
+          "stock_code": "603195",
+          "stock_name": "公牛集团",
+          "market_value": 1185300
+        },
+        {
+          "shares": 39100,
+          "weight": 2.82,
+          "stock_code": "000921",
+          "stock_name": "海信家电",
+          "market_value": 1018199.9999999999
+        },
+        {
+          "shares": 43900,
+          "weight": 2.31,
+          "stock_code": "002508",
+          "stock_name": "老板电器",
+          "market_value": 837200
+        }
+      ],
+      "hk_positions": [],
+      "us_positions": [],
+      "as_of_date": "2025-09-01",
+      "created_at": "2026-03-02T18:58:17.283881",
+      "updated_at": "2026-03-02T18:58:17.283881"
+    }
+  ],
+  "total": 2,
+  "metadata": {
+    "fetch_time": "2026-03-07T19:30:00.000000",
+    "fetch_tool": "fund_dual_axis_analysis",
+    "fetch_version": "1.0.0",
+    "note": "这是示例数据，仅包含2个季度用于演示分析功能"
+  }
+}

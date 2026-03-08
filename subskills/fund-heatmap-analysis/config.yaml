@@ -1,0 +1,105 @@
+# 基金持仓热力图分析配置
+
+# 热力图信号阈值配置
+heatmap_thresholds:
+  heavy_weight: 5.0    # 大色块阈值（%），权重超过此值为"重仓"
+  light_weight: 2.0    # 小色块阈值（%），权重低于此值为"轻仓"
+  red_percentage: 30.0 # 整体偏红阈值（%），红色评级超过此比例则整体偏红
+
+# 财务指标阈值配置
+financial_thresholds:
+  low_pe: 15.0         # 低PE阈值，低于此值为低估值
+  low_pb: 1.5          # 低PB阈值，低于此值为低估值
+  high_turnover: 3.0   # 高换手率阈值（%），超过此值为高流动性
+  strong_change: 2.0   # 强势涨幅阈值（%），超过此值为强势股
+
+# AI建议分析配置
+ai_analysis:
+  high_confidence: 0.7  # 高置信度阈值
+  low_risk: 0.4         # 低风险阈值
+  action_mapping:       # AI操作建议映射
+    强力买入: "Strong Buy"
+    买入: "Buy"
+    持有: "Hold"
+    卖出: "Sell"
+    强力卖出: "Strong Sell"
+
+# 组合评分权重配置
+scoring_weights:
+  action: 0.4          # 操作建议权重（40%）
+  confidence: 0.2      # 置信度权重（20%）
+  risk: 0.2            # 风险评分权重（20%）
+  valuation: 0.1       # 估值权重（10%）
+  momentum: 0.1        # 动量权重（10%）
+
+# 输出配置
+output:
+  json_indent: 2       # JSON缩进空格数
+  summary_language: "zh-CN" # 总结语言
+  include_raw_data: false   # 是否在报告中包含原始数据
+  generate_blog_outline: true # 是否生成博客大纲
+  generate_brief_report: true # 是否生成摘要报告
+
+# API配置
+api:
+  base_url: "https://ai2alpha.cn/api/v1"
+  timeout: 30          # 请求超时时间（秒）
+  retry_attempts: 3    # 重试次数
+  retry_delay: 1       # 重试延迟（秒）
+
+# 性能配置
+performance:
+  cache_duration: 300  # 缓存持续时间（秒）
+  max_stocks_per_request: 200 # 每次请求最大股票数
+  enable_parallel_processing: false # 是否启用并行处理
+
+# 日志配置
+logging:
+  level: "INFO"        # 日志级别：DEBUG, INFO, WARNING, ERROR
+  file: "fund_analysis.log" # 日志文件路径
+  max_size_mb: 10      # 日志文件最大大小（MB）
+  backup_count: 5      # 备份文件数量
+
+# 内容生产配置
+content_production:
+  blog_template: "7_segment" # 博客模板：7_segment, simple, detailed
+  target_audience: "retail_investors" # 目标读者：retail_investors, professional, general
+  include_visualization_suggestions: true # 是否包含可视化建议
+  generate_seo_metadata: true # 是否生成SEO元数据
+
+# 行业分析配置
+industry_analysis:
+  top_industries_count: 5 # 显示前N个行业
+  min_industry_weight: 1.0 # 行业最小权重（%），低于此值不单独显示
+  group_small_industries: true # 是否将小行业分组为"其他"
+
+# 信号优先级配置
+signal_priority:
+  strong_buy_heavy: "P0"   # 最高优先级
+  strong_sell_heavy: "P0"  # 最高优先级
+  strong_buy_light: "P1"   # 高优先级
+  high_upside_potential: "P1" # 高优先级
+  neutral_heavy: "P2"      # 中优先级
+  neutral_light: "P3"      # 低优先级
+
+# 风险评估配置
+risk_assessment:
+  high_risk_score: 0.7     # 高风险阈值
+  medium_risk_score: 0.4   # 中风险阈值
+  warning_red_percentage: 20.0 # 红色评级警告阈值（%）
+
+# 数据验证配置
+data_validation:
+  validate_on_load: true   # 加载时验证数据
+  strict_mode: false       # 严格模式，验证失败则中止
+  required_fields:         # 必需字段
+    - "stock_code"
+    - "stock_name"
+    - "weight"
+    - "analysis_summary"
+  recommended_fields:      # 推荐字段
+    - "current_price"
+    - "change_pct"
+    - "pe_ratio"
+    - "pb_ratio"
+    - "industry"

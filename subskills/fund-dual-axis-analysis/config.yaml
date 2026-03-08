@@ -1,0 +1,129 @@
+# 基金个股持仓双轴历史图分析配置
+
+# 个股精选阈值配置
+stock_selection_thresholds:
+  min_avg_weight: 3.0          # 最小平均权重（%），低于此值不考虑
+  min_quarters_held: 0.7       # 最小持仓季度比例，持仓季度数/总季度数
+  min_slope_positive: 0.01     # 最小正斜率阈值
+  max_stocks_to_select: 5      # 最多选择的关键个股数量
+  selection_weights:           # 精选权重配置
+    avg_weight: 0.3            # 平均权重权重（30%）
+    holding_stability: 0.25    # 持仓稳定性权重（25%）
+    weight_trend: 0.2          # 权重趋势权重（20%）
+    profit_performance: 0.15   # 收益表现权重（15%）
+    industry_representation: 0.1 # 行业代表性权重（10%）
+
+# 双轴图分析配置
+dual_axis_analysis:
+  market_value_unit: 100000000 # 市值单位（100M = 1亿）
+  shares_unit: 1000000         # 股数单位（百万股）
+  significant_change_threshold: 0.2  # 显著变化阈值（20%）
+  min_quarters_for_trend: 4    # 趋势分析最小季度数
+  slope_calculation_method: "linear_regression" # 斜率计算方法：linear_regression, simple_slope
+
+# 收益分析配置
+profit_analysis:
+  positive_profit_threshold: 0.05  # 正收益阈值（5%）
+  high_profit_threshold: 0.15      # 高收益阈值（15%）
+  loss_threshold: -0.05            # 亏损阈值（-5%）
+  significant_loss_threshold: -0.1 # 显著亏损阈值（-10%）
+
+# 操作节点识别配置
+operation_nodes:
+  significant_increase_threshold: 0.2  # 大幅加仓阈值（20%）
+  significant_decrease_threshold: 0.2  # 大幅减仓阈值（20%）
+  peak_detection_window: 3             # 峰值检测窗口（季度数）
+  turning_point_confidence: 0.7        # 拐点置信度阈值
+
+# 输出配置
+output:
+  json_indent: 2                       # JSON缩进空格数
+  summary_language: "zh-CN"            # 总结语言
+  csv_encoding: "utf-8"                # CSV文件编码
+  csv_include_header: true             # CSV是否包含表头
+  generate_individual_csv: true        # 是否为每个个股生成单独CSV
+  generate_combined_csv: false         # 是否生成合并CSV
+  include_raw_calculations: false      # 是否包含原始计算数据
+
+# API配置
+api:
+  base_url: "https://ai2alpha.cn/api/v1"
+  endpoint: "/masters/by-master-code/{master_code}"
+  timeout: 30                          # 请求超时时间（秒）
+  retry_attempts: 3                    # 重试次数
+  retry_delay: 1                       # 重试延迟（秒）
+  max_quarters: 20                     # 最大获取季度数
+
+# 内容生产支持配置
+content_production:
+  blog_template: "7_segment"           # 博客模板：7_segment, simple, detailed
+  target_audience: "retail_investors"  # 目标读者：retail_investors, professional, general
+  generate_visualization_suggestions: true # 是否生成可视化建议
+  generate_seo_metadata: true          # 是否生成SEO元数据
+  include_chart_captions: true         # 是否包含图表说明文字
+  caption_templates:                   # 说明文字模板
+    positive_profit: "柱状=持仓市值，折线=持股股数，市值斜率>股数斜率说明收益可观"
+    negative_profit: "柱状=持仓市值，折线=持股股数，市值斜率<股数斜率说明存在亏损"
+    significant_increase: "大师在{quarter}大幅加仓{stock_name}，股数环比增长{change_pct}%"
+    significant_decrease: "大师在{quarter}大幅减仓{stock_name}，股数环比下降{change_pct}%"
+
+# 行业分析配置
+industry_analysis:
+  top_industries_count: 3              # 显示前N个行业
+  min_industry_weight: 5.0             # 行业最小权重（%），低于此值不单独显示
+  group_small_industries: true         # 是否将小行业分组为"其他"
+  industry_mapping_file: null          # 行业映射文件路径（可选）
+
+# 数据验证配置
+data_validation:
+  validate_on_load: true               # 加载时验证数据
+  strict_mode: false                   # 严格模式，验证失败则中止
+  required_fields:                     # 必需字段
+    - "master_code"
+    - "master_name"
+    - "items"
+  required_item_fields:                # items中必需字段
+    - "a_positions"
+    - "as_of_date"
+  required_position_fields:            # position中必需字段
+    - "stock_code"
+    - "stock_name"
+    - "shares"
+    - "market_value"
+    - "weight"
+
+# 日志配置
+logging:
+  level: "INFO"                        # 日志级别：DEBUG, INFO, WARNING, ERROR
+  file: "fund_dual_axis_analysis.log"  # 日志文件路径
+  max_size_mb: 10                      # 日志文件最大大小（MB）
+  backup_count: 5                      # 备份文件数量
+
+# 性能配置
+performance:
+  cache_duration: 300                  # 缓存持续时间（秒）
+  enable_parallel_processing: false    # 是否启用并行处理
+  max_concurrent_requests: 3           # 最大并发请求数
+  batch_size: 50                       # 批量处理大小
+
+# 斜率分析配置
+slope_analysis:
+  method: "linear_regression"          # 斜率计算方法
+  min_data_points: 4                   # 最小数据点数
+  confidence_level: 0.95               # 置信水平
+  ignore_outliers: true                # 是否忽略异常值
+  outlier_threshold: 2.0               # 异常值阈值（标准差倍数）
+
+# 时间序列分析配置
+time_series_analysis:
+  seasonality_detection: false         # 是否检测季节性
+  trend_detection: true                # 是否检测趋势
+  smoothing_window: 3                  # 平滑窗口大小
+  differencing_order: 1                # 差分阶数
+
+# 风险评估配置
+risk_assessment:
+  volatility_threshold: 0.15           # 波动率阈值（15%）
+  drawdown_threshold: 0.1              # 回撤阈值（10%）
+  concentration_risk_threshold: 0.3    # 集中度风险阈值（30%）
+  liquidity_risk_threshold: 0.05       # 流动性风险阈值（5%）

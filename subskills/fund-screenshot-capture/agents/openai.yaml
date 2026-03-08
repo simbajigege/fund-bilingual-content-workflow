@@ -1,0 +1,3 @@
+interface:
+  display_name: "Fund Screenshot Capture"
+  short_description: "Capture guru page screenshots by fund code"
