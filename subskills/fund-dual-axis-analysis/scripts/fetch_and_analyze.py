@@ -205,7 +205,7 @@ class FundAnalysisPipeline:
         for item in sorted_items:
             quarter = self._date_to_quarter(item['as_of_date'])
 
-            for position in item.get('a_positions', []):
+            for position in (item.get('a_positions', []) + item.get('us_positions', []) + item.get('hk_positions', [])):
                 stock_code = position['stock_code']
                 stock_name = position['stock_name']
 

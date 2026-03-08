@@ -168,8 +168,12 @@ class HistoricalWeightsAnalyzer:
 
             quarter_set.add(quarter)
 
-            # 提取A股持仓
-            a_positions = item.get("a_positions", [])
+            # 提取所有持仓（A股、美股、港股）
+            a_positions = (
+                item.get("a_positions", []) +
+                item.get("us_positions", []) +
+                item.get("hk_positions", [])
+            )
             for position in a_positions:
                 stock_code = position.get("stock_code")
                 weight = position.get("weight", 0)
@@ -846,8 +850,12 @@ class HistoricalWeightsAnalyzer:
         stock_names = {}
         items = data.get("items", [])
         for item in items:
-            a_positions = item.get("a_positions", [])
-            for position in a_positions:
+            all_positions = (
+                item.get("a_positions", []) +
+                item.get("us_positions", []) +
+                item.get("hk_positions", [])
+            )
+            for position in all_positions:
                 stock_code = position.get("stock_code")
                 stock_name = position.get("stock_name")
                 if stock_code and stock_name:
